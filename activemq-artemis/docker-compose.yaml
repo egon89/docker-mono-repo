@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  artemis:
+    image: apache/activemq-artemis:latest-alpine
+    container_name: artemis
+    ports:
+      - "8161:8161" # Web Console
+      - "61616:61616" # OpenWire
+    environment:
+      - ARTEMIS_USER=${ARTEMIS_USER}
+      - ARTEMIS_PASSWORD=${ARTEMIS_PASSWORD}
+    volumes:
+      - artemis_data:/var/lib/artemis-instance
+
+volumes:
+  artemis_data:
+
