@@ -1,0 +1,16 @@
+services:
+  pgdump:
+    image: postgres:16
+    environment:
+      PGHOST: ${PGHOST}
+      PGPORT: ${PGPORT}
+      PGUSER: ${PGUSER}
+      PGPASSWORD: ${PGPASSWORD}
+      PGDATABASE: ${PGDATABASE}
+    entrypoint: ["pg_dump"]
+    command:
+      [
+        "--data-only",
+        "--exclude-table='*migrations*'",
+        "-F", "c"
+      ]
