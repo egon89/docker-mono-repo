@@ -10,7 +10,7 @@ until curl -s http://localhost:11434/version > /dev/null; do
 done
 
 # Pull the desired models
-ollama pull llama3
+ollama pull llama3.2
 ollama pull nomic-embed-text
 
 # Keep the server running in the foreground
