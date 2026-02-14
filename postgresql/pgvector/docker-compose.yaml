@@ -1,0 +1,15 @@
+services:
+  db:
+    container_name: postgres-vector
+    image: 'pgvector/pgvector:pg17-trixie'
+    environment:
+      - POSTGRES_DB
+      - POSTGRES_PASSWORD
+      - POSTGRES_USER
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
+
+volumes:
+  pgdata:
