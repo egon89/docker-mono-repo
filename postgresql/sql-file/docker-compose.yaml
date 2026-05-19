@@ -1,6 +1,6 @@
 services:
   pgdump:
-    image: postgres:16
+    image: postgres:18
     environment:
       PGHOST: ${PGHOST}
       PGPORT: ${PGPORT}
@@ -8,5 +8,6 @@ services:
       PGPASSWORD: ${PGPASSWORD}
       PGDATABASE: ${PGDATABASE}
     command: ["/bin/bash"]
+    network_mode: "host"
     volumes:
       - ./output:/output
